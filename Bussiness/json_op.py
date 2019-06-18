@@ -11,7 +11,7 @@ import time
 from Bussiness.mongodb_op import DBHelper
 def getjson():
     file_read = None
-    with open(r'z:/1.txt','r') as f:
+    with open(r'1.txt','r') as f:
         file_read = json.loads( f.read() )
     # print(file_read)
 
