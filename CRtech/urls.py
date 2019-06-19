@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
 from WebUtility.views import data_his as data_his_view
+from WebUtility.views import disp_his as disp_his_view
+from WebUtility.views import index as index
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^datahis/$',data_his_view),
+    re_path(r'^showdata/$',disp_his_view),
+    re_path(r'^$',index),
 ]

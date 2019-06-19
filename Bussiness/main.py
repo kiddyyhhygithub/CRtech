@@ -21,10 +21,19 @@ def main():
 
     ##############json解析#######################
 
-    print(getjson())
+    # print(getjson())
     #############################################
 
 
+    ###############显示数据########################
+
+    # db = DBHelper('127.0.0.1',27017)
+    # db.show_data()
+    #############################################
+
+    dict = {'Name': 'Runoob'}
+
+    print("dict['Name']: ", dict['Name'])
     print("completed")
     return
 if __name__ == '__main__':
