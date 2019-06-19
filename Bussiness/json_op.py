@@ -18,7 +18,7 @@ def getjson():
     data = []
     timeStr = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     #在线解析 https://c.runoob.com/front-end/53
-    for fi in file_read['service']['data']['serviceData']['MeterReading']['datas']:
+    for fi in file_read['service'][0]['data']['serviceData']['MeterReading']['datas']:
         # data.append({"name":fi['Reading']})
         data.append({"protocol":fi['protocol'],"id":fi['id'],"name": fi['Reading'],'time':fi['time'],"SysTime":timeStr})
         # print(fi['Reading'])
@@ -37,7 +37,7 @@ def obtain_body_json(body):
     data = []
     timeStr = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     # 在线解析 https://c.runoob.com/front-end/53
-    for fi in file_read['service']['data']['serviceData']['MeterReading']['datas']:
+    for fi in file_read['service'][0]['data']['serviceData']['MeterReading']['datas']:
         data.append({"protocol":fi['protocol'],"id":fi['id'],"name": fi['Reading'],'time':fi['time'],"SysTime":timeStr})
         # print(fi['Reading'])
     print(data)
