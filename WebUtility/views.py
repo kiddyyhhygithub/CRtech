@@ -39,8 +39,9 @@ def disp_his(request):
     reading2.name = 'huyu'
     data.append(reading2)
 
+    title = '水表信息'
 
-    content = {"a":'a',
+    content = {"title":title,
                'b':'b',
                "data":data,
                }
