@@ -33,7 +33,7 @@ def obtain_body_json(body):
 
     :return:
     '''
-    file_read = body
+    file_read = json.loads(body.decode('utf-8'))
     data = []
     timeStr = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     # 在线解析 https://c.runoob.com/front-end/53

@@ -9,6 +9,7 @@
 
 from pymongo import MongoClient
 import pymongo
+from Classes.Meter import Meter
 class DBHelper():
 
     def __init__(self,_url_str='127.0.0.1',_port=27017):
@@ -44,15 +45,28 @@ class DBHelper():
         collection.insert(_data)
         return
 
-    def show_data(self):
+    def show_data(self,N = 50,sort = pymongo.DESCENDING):
+        '''
+        获取历史数据
+        :param N:
+        :param sort:
+        :return:返回实体类列表
+        '''
         conn = MongoClient(self.url_str, self.port)
         db = conn.yanhua
         collection = db.yh
-        data = collection.find().limit(10).sort('_id',pymongo.DESCENDING)
+        data = collection.find().limit(N).sort('_id',sort)
+        obj = []
         for d in data:
             str = '%s--%s--%s--%s--%s'%(d['protocol'],d['id'],d['name'],d['time'],d['SysTime'])
+            # meter = Meter()
+            # meter.Protocol = d['protocol']
+            # meter.MeterID = d['id']
+            # meter.Time = d['time']
+            # meter.SysTime = d['SysTime']
+            # obj.append(meter)
             print(str)
-        return
+        return obj
 
 
 

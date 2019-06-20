@@ -3,27 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<title>{{title}}</title>
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../static/index/css/bootstrap.min.css">
+	<script src="../static/index/js/jquery.min.js"></script>
+	<script src="../static/index/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<h5 class="badge">{{title}}</h5>
 <table class="table table-hover">
-	<caption>{{title}}</caption>
+
 	<thead>
 		<tr>
+			<th>编号</th>
 			<th>读数</th>
-			<th>时间</th>
+			<th>采集时间</th>
 			<th>上传时间</th>
+			<th>协议版本</th>
 		</tr>
 	</thead>
 	<tbody>
         {%for d in data%}
 		<tr>
-			<td>{{d.name}}</td>
-			<td>{{d.name}}</td>
-			<td>{{d.name}}</td>
+			<td>{{d.MeterID}}</td>
+			<td>{{d.Reading}}</td>
+			<td>{{d.Time}}</td>
+			<td>{{d.SysTime}}</td>
+			<td>{{d.Protocol}}</td>
 		</tr>
         {%endfor%}
 	</tbody>
