@@ -8,7 +8,7 @@
 # @email   : kiddyflash@163.com
 
 from pymongo import MongoClient
-
+import pymongo
 class DBHelper():
 
     def __init__(self,_url_str='127.0.0.1',_port=27017):
@@ -42,6 +42,16 @@ class DBHelper():
         # user_name = '胡玉'
         # data = {'name':'胡玉'}
         collection.insert(_data)
+        return
+
+    def show_data(self):
+        conn = MongoClient(self.url_str, self.port)
+        db = conn.yanhua
+        collection = db.yh
+        data = collection.find().limit(10).sort('_id',pymongo.DESCENDING)
+        for d in data:
+            str = '%s--%s--%s--%s--%s'%(d['protocol'],d['id'],d['name'],d['time'],d['SysTime'])
+            print(str)
         return
 
 
